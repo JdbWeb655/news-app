@@ -1,21 +1,16 @@
 import { useQuery } from "@tanstack/react-query"
 import type { NewsResponse, Category } from "../types/news"
 
-const API_KEY = import.meta.env.VITE_NEWS_API_KEY as string
-const BASE_URL = "https://newsapi.org/v2"
+const BASE_URL = "http://localhost:3000"
 
 const fetchTopHeadlines = async (category: Category): Promise<NewsResponse> => {
-  const response = await fetch(
-    `${BASE_URL}/top-headlines?country=us&category=${category}&apiKey=${API_KEY}`
-  )
+  const response = await fetch( `${BASE_URL}/headlines?category=${category}` )
   if (!response.ok) throw new Error("Error al obtener noticias")
   return response.json()
 }
 
 const fetchSearchNews = async (query: string, page: number): Promise<NewsResponse> => {
-  const response = await fetch(
-    `${BASE_URL}/everything?q=${query}&page=${page}&pageSize=12&sortBy=publishedAt&apiKey=${API_KEY}`
-  )
+  const response = await fetch( `${BASE_URL}/search?q=${query}&page=${page}` )
   if (!response.ok) throw new Error("Error al buscar noticias")
   return response.json()
 }
