@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query"
 import type { NewsResponse, Category } from "../types/news"
 
-const BASE_URL = "http://localhost:3000"
+const BASE_URL = "https://news-backend-production-1eff.up.railway.app"
 
 const fetchTopHeadlines = async (category: Category): Promise<NewsResponse> => {
   const response = await fetch( `${BASE_URL}/headlines?category=${category}` )
