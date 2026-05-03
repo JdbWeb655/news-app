@@ -1,8 +1,9 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import Navbar from "./components/Navbar"
+import Navbar from "./shared/Navbar"
 import Home from "./pages/Home"
 import Search from "./pages/Search"
 import NewsDetail from "./pages/NewsDetail"
+import Favorites from "./pages/Favorites"
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/search" element={<Search />} />
         <Route path="/news" element={<NewsDetail />} />
+        <Route path="/favorites" element={<Favorites />} />
       </Routes>
     </BrowserRouter>
   )

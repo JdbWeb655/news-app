@@ -1,7 +1,68 @@
 @import "tailwindcss";
 
+:root {
+  --paper-bg: #f4ece0;
+  --ink-color: #2b2b2b;
+  --accent-red: #8b0000;
+}
+
 body {
-  background-color: #f5f0e8;
-  color: #1a1a1a;
-  font-family: Georgia, serif;
+  background-color: var(--paper-bg);
+  color: var(--ink-color);
+  font-family: 'Georgia', 'Times New Roman', serif;
+  background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+  line-height: 1.6;
+}
+
+/* Estilo de periódico antiguo */
+.newspaper-border {
+  border: 1px solid var(--ink-color);
+  position: relative;
+  padding: 2px;
+}
+
+.newspaper-border::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border: 1px solid var(--ink-color);
+  pointer-events: none;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+/* Efecto de tinta antigua */
+.ink-effect {
+  filter: contrast(1.1) brightness(0.95) sepia(0.2);
+}
+
+.vintage-btn {
+  @apply px-4 py-1.5 border-2 border-black font-black uppercase tracking-widest text-[10px] transition-all duration-300;
+  background: transparent;
+}
+
+.vintage-btn:hover {
+  @apply bg-black text-white;
+  box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+}
+
+.vintage-btn.active {
+  @apply bg-black text-white;
+}
+
+/* Animación de entrada suave */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-vintage {
+  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
