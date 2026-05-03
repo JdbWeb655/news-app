@@ -27,7 +27,7 @@ const NewsCard = ({ article }: NewsCardProps) => {
     if (navigator.share) {
       navigator.share({
         title: article.title,
-        text: article.description,
+        text: article.description ?? undefined,
         url: article.url,
       })
     } else {
